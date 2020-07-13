@@ -1,17 +1,17 @@
 <header>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark box-shadow mb-3">
         <div class="container">
-            <a class="navbar-brand" [routerLink]="['/']">Black Jack 711</a>
+            <a class="navbar-brand" [routerLink]="['/']"><img src="../../assets/png/logo-inicio.png" class="logo-img" alt="Blackjack Logo"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-label="Toggle navigation" [attr.aria-expanded]="isExpanded" (click)="toggle()">
         <span class="navbar-toggler-icon"></span>
       </button>
             <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse" [ngClass]="{ show: isExpanded }">
                 <ul class="navbar-nav flex-grow">
                     <li class="nav-item" [routerLinkActive]="['link-active']" [routerLinkActiveOptions]="{ exact: true }">
-                        <a class="nav-link text-dark" [routerLink]="['/']">Inicio</a>
+                        <a class="nav-link text-light" [routerLink]="['/']">Inicio</a>
                     </li>
                     <li class="nav-item" [routerLinkActive]="['link-active']">
-                        <a class="nav-link text-dark" [routerLink]="['/mesa-virtual']">Mesa virtual</a>
+                        <a class="nav-link text-light" [routerLink]="['/mesa-virtual']">Mesa virtual</a>
                     </li>
                 </ul>
             </div>
