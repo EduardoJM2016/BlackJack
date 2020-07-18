@@ -11,7 +11,7 @@ namespace blackjack.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    class CartasController : ControllerBase
+    public class CartasController : ControllerBase
     {
         private readonly DataBaseContext _context;
         public CartasController(DataBaseContext context)
