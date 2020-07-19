@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using blackjack.Models;
+using blackjack;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using System;
@@ -11,29 +12,29 @@ namespace blackjack.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CartasController : ControllerBase
+    public class BlackJackController : ControllerBase
     {
         private readonly DataBaseContext _context;
-        public CartasController(DataBaseContext context)
+        public BlackJackController(DataBaseContext context)
         {
             _context = context;
         }
 
         //Método GET de el Eduardo
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Carta>>> GetCartas()
+        public async Task<ActionResult<IEnumerable<PlayingCard>>> GetCartas()
         {
-            return await _context.Cartas.ToListAsync();
+            return await _context.PlayingCards.ToListAsync();
         }
 
         //Método POST de el Eduardo
-        [HttpPost]
+        /*[HttpPost]
         public async Task<ActionResult<Carta>> PostCarta(Carta carta)
         {
             this._context.Cartas.Add(carta);
             await this._context.SaveChangesAsync();
 
             return CreatedAtAction("", new { id=carta.Id }, carta);
-        }
+        }*/
     }
 }

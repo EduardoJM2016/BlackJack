@@ -8,8 +8,7 @@ namespace blackjack.Models
         {
 
         }
-        public DbSet<Carta> Cartas { get; set; }
-        public DbSet<Partida> Partidas { get; set; }
-        public DbSet<Baraja> Barajas { get; set; }
+        public DbSet<PlayingCard> PlayingCards { get; set; }
+        public DbSet<Player> Players { get; set; }
     }
 }
