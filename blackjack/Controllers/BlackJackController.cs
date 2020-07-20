@@ -22,19 +22,16 @@ namespace blackjack.Controllers
 
         //Método GET de el Eduardo
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<PlayingCard>>> GetCartas()
+        public async Task<ActionResult<IEnumerable<PlayingCard>>> GetCards()
         {
             return await _context.PlayingCards.ToListAsync();
         }
 
         //Método POST de el Eduardo
         /*[HttpPost]
-        public async Task<ActionResult<Carta>> PostCarta(Carta carta)
+        public async Task<ActionResult<PlayingCard>> generateCardDeck()
         {
-            this._context.Cartas.Add(carta);
             await this._context.SaveChangesAsync();
-
-            return CreatedAtAction("", new { id=carta.Id }, carta);
         }*/
     }
 }

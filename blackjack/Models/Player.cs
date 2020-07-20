@@ -10,7 +10,7 @@ namespace blackjack.Models
         public int BankRoll { get; set; }
         public int AmountWon { get; set; }
         public bool IsDealer {get;set;}
-        public List<PlayingCard> Cards {get;}
+        public List<PlayingCard> Cards {get; set;}
         public int Points {get;set;}
         public bool Standing {get;set;}
 
