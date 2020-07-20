@@ -1,11 +1,11 @@
 <div class="mesa-container" style="text-align:center">
-    <div>
-        <carta></carta>
+    <div *ngIf="cards">
+        <carta [card]="cards[0]"></carta>
     </div>
     <div>
-        <button class="deal"><strong>JUGAR</strong></button>
+        <button (click)="getCards()" class="deal"><strong>JUGAR</strong></button>
     </div>
-    <div>
-        <carta></carta>
+    <div *ngIf="cards">
+        <carta [card]="cards[1]"></carta>
     </div>
 </div>

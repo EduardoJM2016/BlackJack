@@ -10,5 +10,10 @@ namespace blackjack.Models
         }
         public DbSet<PlayingCard> PlayingCards { get; set; }
         public DbSet<Player> Players { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<PlayingCard>().HasKey(o => o.Id);
+        }
     }
 }

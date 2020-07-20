@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Card } from '../classes/Card';
 
 @Component({
     selector: 'carta',
@@ -7,5 +8,9 @@ import { Component, Input } from '@angular/core';
 })
 
 export class CartaComponent{
+
+    @Input() card: Card;
+
+    placeholder: String = "assets/placeholder.png";
     
 }

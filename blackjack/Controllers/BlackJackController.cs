@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace blackjack.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/[controller]")]
     public class BlackJackController : ControllerBase
     {
         private readonly DataBaseContext _context;
