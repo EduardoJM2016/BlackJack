@@ -34,7 +34,7 @@ export class MesaComponent implements OnInit {
 
         this.cardsServiceService.getCards(this.deck.deck_id).subscribe(
             response => {
-                this.cards = response.cards;
+                this.cards = response;
                 console.log(this.cards);
             } 
         )

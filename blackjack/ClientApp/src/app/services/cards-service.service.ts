@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Deck } from '../classes/Deck';
 import { Card } from '../classes/Card';
 
-const baseUrl = 'https://deckofcardsapi.com/api/';
+const baseUrl = 'http://localhost:5000/api/';
 
 // https://deckofcardsapi.com/api/deck/<<deck_id>>/draw/?count=2
 
@@ -15,11 +15,11 @@ export class CardsServiceService {
   constructor(private http: HttpClient) { }
 
   getAll() {
-    return this.http.get<Deck>(`${baseUrl}deck/new`);
+    return this.http.get<Deck>(`${baseUrl}deck`);
   }
 
   getCards(deck_id: String) {
-    return this.http.get<Card[]>(`${baseUrl}deck/${deck_id}/draw/?count=2`);
+    return this.http.get<Card[]>(`${baseUrl}deck/${deck_id}/draw/?count=52`);
   }
 
 }
