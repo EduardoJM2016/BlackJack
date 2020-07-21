@@ -36,6 +36,7 @@ export class MesaComponent implements OnInit {
             response => {
                 this.playerCards.push(response.cards[0]);
                 this.dealerCards.push(response.cards[1]);
+                console.log(response);
             } 
         )
     }
@@ -44,7 +45,7 @@ export class MesaComponent implements OnInit {
         this.cardsServiceService.getCard(this.deck.deck_id).subscribe(
             response => {
                 this.playerCards.push(response.cards[0]);
-                console.log(this.playerCards);
+                console.log(this.cards);
             } 
         )
     }

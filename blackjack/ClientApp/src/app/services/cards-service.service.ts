@@ -17,11 +17,11 @@ export class CardsServiceService {
   }
 
   getCards(deck_id: String) {
-    return this.http.get<Card[]>(`${baseUrl}deck/${deck_id}/draw/?count=2`);
+    return this.http.get<any>(`${baseUrl}deck/${deck_id}/draw/?count=2`);
   }
 
   getCard(deck_id: String) {
-    return this.http.get<Card[]>(`${baseUrl}deck/${deck_id}/draw/?count=1`);
+    return this.http.get<any>(`${baseUrl}deck/${deck_id}/draw/?count=1`);
   }
 
 }
