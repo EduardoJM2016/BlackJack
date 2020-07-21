@@ -11,6 +11,5 @@ export class CartaComponent{
 
     @Input() card: Card;
 
-    placeholder: String = "assets/placeholder.png";
     
 }

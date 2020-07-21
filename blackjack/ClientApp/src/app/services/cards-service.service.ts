@@ -3,9 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Deck } from '../classes/Deck';
 import { Card } from '../classes/Card';
 
-const baseUrl = 'http://localhost:5000/api/';
-
-// https://deckofcardsapi.com/api/deck/<<deck_id>>/draw/?count=2
+const baseUrl = 'https://localhost:5001/api/';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +17,11 @@ export class CardsServiceService {
   }
 
   getCards(deck_id: String) {
-    return this.http.get<Card[]>(`${baseUrl}deck/${deck_id}/draw/?count=52`);
+    return this.http.get<Card[]>(`${baseUrl}deck/${deck_id}/draw/?count=2`);
+  }
+
+  getCard(deck_id: String) {
+    return this.http.get<Card[]>(`${baseUrl}deck/${deck_id}/draw/?count=1`);
   }
 
 }

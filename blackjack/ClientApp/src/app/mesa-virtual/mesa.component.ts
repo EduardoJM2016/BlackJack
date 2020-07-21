@@ -3,7 +3,6 @@ import { CardsServiceService } from '../services/cards-service.service';
 import { Deck } from '../classes/Deck';
 import { Card } from '../classes/Card';
 
-
 @Component({
     selector: 'mesa-app',
     templateUrl: './mesa.component.html',
@@ -11,16 +10,17 @@ import { Card } from '../classes/Card';
 })
 
 export class MesaComponent implements OnInit {
-
     deck: Deck;
     cards: Card[];
- 
+    playerCards: Card[] = [];
+    dealerCards: Card[] = [];
+    playerPoints: Number = 0;
+    playing: Boolean;
+
     constructor(private cardsServiceService: CardsServiceService) { }
 
     ngOnInit() {
-
         let deck_id;
-
         this.cardsServiceService.getAll().subscribe(
             response => {
                 this.deck = response;
@@ -30,13 +30,27 @@ export class MesaComponent implements OnInit {
         )
     }
 
-    getCards() {
-
+    getInitialsCards() {
+        this.playing = true;
         this.cardsServiceService.getCards(this.deck.deck_id).subscribe(
             response => {
-                this.cards = response;
-                console.log(this.cards);
+                this.playerCards.push(response.cards[0]);
+                this.dealerCards.push(response.cards[1]);
             } 
         )
     }
+
+    getCard() {
+        this.cardsServiceService.getCard(this.deck.deck_id).subscribe(
+            response => {
+                this.playerCards.push(response.cards[0]);
+                console.log(this.playerCards);
+            } 
+        )
+    }
+
+    // PointsCardPlayer() {
+    //     this.playerPoints = this.playerCards.reduce((sum, card) => sum + parseInt(card.value), 0);
+
+    // }
 }

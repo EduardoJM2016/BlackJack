@@ -1,11 +1,19 @@
 <div class="mesa-container" style="text-align:center">
-    <div *ngIf="cards">
-        <carta [card]="cards[0]"></carta>
+    <placeholder *ngIf="!playing"></placeholder>
+    <div *ngIf="playing">
+        <carta [card]="dealerCards[0]"></carta>
     </div>
     <div>
-        <button (click)="getCards()" class="deal"><strong>JUGAR</strong></button>
+        <button *ngIf="!playing" (click)="getInitialsCards()" class="deal"><strong>JUGAR</strong></button>
+        <div>
+            <button *ngIf="playing" (click)="getCard()" class="deal"><strong>Solicitar</strong></button>
+            <button *ngIf="playing" (click)="getCard()" class="deal"><strong>Retirarse</strong></button>
+        </div>
     </div>
-    <div *ngIf="cards">
-        <carta [card]="cards[1]"></carta>
+    <placeholder *ngIf="!playing"></placeholder>
+    <div *ngFor="let card of playerCards">
+        <div *ngIf="playing">
+            <carta [card]="card"></carta>
+        </div>
     </div>
 </div>

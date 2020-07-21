@@ -11,6 +11,7 @@ import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { MesaComponent } from './mesa-virtual/mesa.component';
 import { CartaComponent } from './carta/carta.component';
+import { PlaceholderComponent } from './placeholder/placeholder.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CartaComponent } from './carta/carta.component';
     CounterComponent,
     FetchDataComponent,
     MesaComponent,
-    CartaComponent
+    CartaComponent,
+    PlaceholderComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
