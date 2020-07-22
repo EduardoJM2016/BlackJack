@@ -17,7 +17,7 @@ export class CardsServiceService {
   }
 
   getCards(deck_id: String) {
-    return this.http.get<any>(`${baseUrl}deck/${deck_id}/draw/?count=2`);
+    return this.http.get<any>(`${baseUrl}deck/${deck_id}/draw/?count=4`);
   }
 
   getCard(deck_id: String) {

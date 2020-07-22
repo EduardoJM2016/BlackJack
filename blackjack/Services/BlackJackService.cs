@@ -13,13 +13,16 @@ namespace blackjack.Services
         public Player dealer;
         private int CardsIdIndex = 0;
         private int PlayerHighestPoints = 0;
+        public bool gameStarted = false;
+        public bool allPlayersBet = true;
+        public bool notAllPlayersAddedBet = false;
 
         public BlackJackService()
         {
 
         }
 
-        private void generateCardDeck()
+        public List<PlayingCard> generateCardDeck()
         {
             this.CardsDeck = new List<PlayingCard>();
             this.CardsIdIndex = 0;
@@ -28,6 +31,8 @@ namespace blackjack.Services
             this.CardsDeck.AddRange(generateSuitCards("spade"));
             this.CardsDeck.AddRange(generateSuitCards("heart"));
             this.CardsDeck.AddRange(generateSuitCards("diamond"));
+
+            return CardsDeck;
         }
 
         private List<PlayingCard> generateSuitCards(string suit)
@@ -281,6 +286,59 @@ namespace blackjack.Services
                     this.dealerAutomaticPlay();
                 }
             }
+        }
+        public void resetDealer()
+        {
+            this.dealer.IsDealer = true;
+            this.dealer.Name = "Dealer";
+            this.dealer.BankRoll = 0;
+            this.dealer.Points = 0;
+            this.dealer.Cards = new List<PlayingCard>();
+            this.dealer.WinnerOfRound = false;
+            this.dealer.NaturalBlackJack = false;
+            this.dealer.GameModeOn = true;
+        }
+
+        public void newRound()
+        {
+            foreach (var player in Players)
+            {
+                player.Cards = new List<PlayingCard>();
+                player.CurrentBetValue = 0;
+                player.WinnerOfRound = false;
+                player.Bust = false;
+                player.BlackJack = false;
+                player.NaturalBlackJack = false;
+                player.AmountWon = 0;
+                player.Points = 0;
+                player.Standing = false;
+            }
+
+            resetDealer();
+            gameStarted = true;
+        }
+
+        public void dealHand()
+        {            
+            foreach (var player in Players)
+            {
+                if(player.BankRoll > 0 && (player.CurrentBetValue == 0))
+                {
+                    allPlayersBet = false;
+                    break;
+                }
+            }
+
+            if (!this.allPlayersBet)
+            {
+                notAllPlayersAddedBet = true;
+            }
+            else
+            {
+                gameStarted = true;
+                dealHand(dealer);
+            }
+            
         }
     }
 }
